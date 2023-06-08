@@ -23,24 +23,24 @@
 
 	<select id="findAll" resultMap="XxlJobGroup">
 		SELECT <include refid="Base_Column_List" />
-		FROM xxl_job_group AS t
+		FROM XXL_JOB_SCH.xxl_job_group AS t
 		ORDER BY t.app_name, t.title, t.id ASC
 	</select>
 
 	<select id="findByAddressType" parameterType="java.lang.Integer" resultMap="XxlJobGroup">
 		SELECT <include refid="Base_Column_List" />
-		FROM xxl_job_group AS t
+		FROM XXL_JOB_SCH.xxl_job_group AS t
 		WHERE t.address_type = #{addressType}
 		ORDER BY t.app_name, t.title, t.id ASC
 	</select>
 
 	<insert id="save" parameterType="com.xxl.job.admin.core.model.XxlJobGroup" useGeneratedKeys="true" keyProperty="id" >
-		INSERT INTO xxl_job_group ( app_name, title, address_type, address_list, update_time)
+		INSERT INTO XXL_JOB_SCH.xxl_job_group ( app_name, title, address_type, address_list, update_time)
 		values ( #{appname}, #{title}, #{addressType}, #{addressList}, #{updateTime} );
 	</insert>
 
 	<update id="update" parameterType="com.xxl.job.admin.core.model.XxlJobGroup" >
-		UPDATE xxl_job_group
+		UPDATE XXL_JOB_SCH.xxl_job_group
 		SET app_name = #{appname},
 			title = #{title},
 			address_type = #{addressType},
@@ -50,19 +50,19 @@
 	</update>
 
 	<delete id="remove" parameterType="java.lang.Integer" >
-		DELETE FROM xxl_job_group
+		DELETE FROM XXL_JOB_SCH.xxl_job_group
 		WHERE id = #{id}
 	</delete>
 
 	<select id="load" parameterType="java.lang.Integer" resultMap="XxlJobGroup">
 		SELECT <include refid="Base_Column_List" />
-		FROM xxl_job_group AS t
+		FROM XXL_JOB_SCH.xxl_job_group AS t
 		WHERE t.id = #{id}
 	</select>
 
 	<select id="pageList" parameterType="java.util.HashMap" resultMap="XxlJobGroup">
 		SELECT <include refid="Base_Column_List" />
-		FROM xxl_job_group AS t
+		FROM XXL_JOB_SCH.xxl_job_group AS t
 		<trim prefix="WHERE" prefixOverrides="AND | OR" >
 			<if test="appname != null and appname != ''">
 				AND t.app_name like CONCAT(CONCAT('%', #{appname}), '%')
@@ -77,7 +77,7 @@
 
 	<select id="pageListCount" parameterType="java.util.HashMap" resultType="int">
 		SELECT count(1)
-		FROM xxl_job_group AS t
+		FROM XXL_JOB_SCH.xxl_job_group AS t
 		<trim prefix="WHERE" prefixOverrides="AND | OR" >
 			<if test="appname != null and appname != ''">
 				AND t.app_name like CONCAT(CONCAT('%', #{appname}), '%')

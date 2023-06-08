@@ -70,7 +70,7 @@ public class JobScheduleHelper {
                         connAutoCommit = conn.getAutoCommit();
                         conn.setAutoCommit(false);
 
-                        preparedStatement = conn.prepareStatement(  "select * from xxl_job_lock where lock_name = 'schedule_lock' for update" );
+                        preparedStatement = conn.prepareStatement(  "select * from XXL_JOB_SCH.xxl_job_lock where lock_name = 'schedule_lock' for update" );
                         preparedStatement.execute();
 
                         // tx start

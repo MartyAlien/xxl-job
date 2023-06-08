@@ -1,3 +1,8 @@
+-- 创建SCHEMA
+CREATE SCHEMA IF NOT EXISTS XXL_JOB_SCH;
+
+-- 切换到 XXL_JOB_SCH schema
+SET search_path TO XXL_JOB_SCH;
 -- ----------------------------
 -- Sequence structure for xxl_job_group_id_seq
 -- ----------------------------
@@ -313,8 +318,8 @@ COMMENT ON COLUMN "xxl_job_user"."permission" IS '权限：执行器ID列表，�
 -- Records of xxl_job_user
 -- ----------------------------
 BEGIN;
-INSERT INTO "xxl_job_user" VALUES (1, 'admin', 'e10adc3949ba59abbe56e057f20f883e', 1, NULL);
-INSERT INTO "xxl_job_user" VALUES (0, 'asdf', '58a5bd4d1fe1914a7438e768c0627486', 0, '');
+INSERT INTO "xxl_job_user" VALUES (1, 'mija_admin', '65dd856a230a3c209466812e5583f729', 1, NULL);
+INSERT INTO "xxl_job_user" VALUES (0, 'libai', 'ad942938834a3657d8dcf5279d749b8f', 0, '');
 COMMIT;
 
 -- ----------------------------
